@@ -1,0 +1,8 @@
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    //This code basically makes 4 columns. We are repeating one equal distance by 4 times. if you have 800 px, and you run this code, each section is 400 pc
+    column-gap: 20px;
+    row-gap: 75px;
+    margin: 20px;
+}

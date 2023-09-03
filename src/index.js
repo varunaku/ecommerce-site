@@ -1,14 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.scss';
+import { BrowserRouter } from 'react-router-dom'; //router
+
 import App from './App';
+import { UserProvider } from './contexts/user.context';
+import { CategoriesProvider } from './contexts/categories.context';
+import { CartProvider } from './contexts/cart.context';
+
+
+import './index.scss';
+
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+   <BrowserRouter>
+    <UserProvider>
+      <CategoriesProvider>
+        <CartProvider>
+          <App />
+        </CartProvider> 
+      </CategoriesProvider>
+    </UserProvider>  
+   </BrowserRouter>
+  </React.StrictMode> //nest application in browser router
+  //this way the products provider has access to the user provider
 );
 
 // If you want to start measuring performance in your app, pass a function
